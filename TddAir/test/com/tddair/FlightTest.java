@@ -42,7 +42,7 @@ public class FlightTest {
 
 	@Test
 	public void testGetFullFlightNumber() {
-
+		// Setup
 		Flight flight = new Flight(orig, dest, miles, airline, number);
 
 		// Execute
