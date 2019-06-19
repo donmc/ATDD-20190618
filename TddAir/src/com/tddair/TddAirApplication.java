@@ -31,11 +31,15 @@ public class TddAirApplication {
 		Member member = lookupMemberByUsername(username);
 		
 		int ytdMiles = member.getYtdMiles() + flight.getMileage();
+		member.setBalanceMiles(member.getYtdMiles() + flight.getMileage());
 		
 		member.setYtdMiles(ytdMiles);
 		
 		if (ytdMiles >= 20000) {
 			member.setCategory(Category.Green);
+		}
+		if (ytdMiles >= 50000) {
+			member.setCategory(Category.Blue);
 		}
 	}
 }

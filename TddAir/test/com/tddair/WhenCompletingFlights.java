@@ -17,25 +17,29 @@ public class WhenCompletingFlights {
 		String username = "donmc";
 		String email = "don@improving.com";
 		app = new TddAirApplication();
-
-		// exercise
-		app.registerMember(username, email);
+        app.registerMember(username, email);
 		member = app.lookupMemberByUsername(username);
-
-		flight = app.lookUpFlightByNumber("UA201");
+        flight = app.lookUpFlightByNumber("UA201");
+		app.completeFlightForMember(flight.getFullFlightNumber(), member.getUsername());
 
 	}
 
 	@Test
 	public void shouldGoFromRedToGreen() {
 
-		// Setup
-
-		// Exercise
-		app.completeFlightForMember(flight.getFullFlightNumber(), member.getUsername());
-
 		// Verify
         assertEquals(Category.Green, member.getCategory());
+	}
+	
+	@Test
+	public void shouldGoFromGreenToBlue() {
+         // Setup 
+		flight = app.lookUpFlightByNumber("UA201");
+		app.completeFlightForMember(flight.getFullFlightNumber(), member.getUsername());
+		app.completeFlightForMember(flight.getFullFlightNumber(), member.getUsername());
+	
+		// Verify
+        assertEquals(Category.Blue, member.getCategory());
 	}
 	
 	@Test
@@ -50,6 +54,20 @@ public class WhenCompletingFlights {
 
 		// Verify
         assertTrue(currentMiles < member.getYtdMiles());
+	}
+	
+	@Test
+	public void shouldAccumulatebalanceMiles() {
+
+		// Setup
+		
+		int currentMiles = member.getBalanceMiles();
+
+		// Exercise
+		app.completeFlightForMember(flight.getFullFlightNumber(), member.getUsername());
+
+		// Verify
+        assertTrue(currentMiles < member.getBalanceMiles());
 	}
 
 }

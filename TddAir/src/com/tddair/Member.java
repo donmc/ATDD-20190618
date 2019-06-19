@@ -46,4 +46,9 @@ public class Member {
 		
 	}
 
+	public void setBalanceMiles(int balanceMiles) {
+		this.balanceMiles=balanceMiles;
+		
+	}
+
 }

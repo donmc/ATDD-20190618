@@ -2,8 +2,7 @@ package com.tddair;
 
 public enum Category {
 
-	 Red,
-	 Green;
+	 Red,Green,Blue,Golden;
 
 	
 
