@@ -31,4 +31,13 @@ public class Member {
 		return category;
 	}
 
+	public void setBlanaceMiles(int i) {
+		balanceMiles = i;
+	}
+
+	public void completesFlight(String flightNumber) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
