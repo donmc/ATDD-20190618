@@ -40,6 +40,8 @@ public class Member {
 	
 	public void addYtdMiles(int milesToAdd) {
 		this.ytdMiles += milesToAdd;
+		
+		this.category = Category.getCategoryForMiles(this.ytdMiles);
 	}
 
 	public void addBalanceMiles(int mileage) {
