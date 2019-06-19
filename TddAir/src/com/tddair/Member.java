@@ -1,5 +1,7 @@
 package com.tddair;
 
+import org.junit.Test;
+
 public class Member {
 	
 	public void Member(String userId, String email) {
@@ -18,5 +20,10 @@ public class Member {
 	public int getBalanceMiles() {
 		// TODO Auto-generated method stub
 		return 10000;
+	}
+
+	@Test
+	public void shouldGetErrorWhenUserExistsBad() {
+	
 	}
 }
