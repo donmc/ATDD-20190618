@@ -16,4 +16,14 @@ public class TddAirApplication {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public void registerMember(String username, String email) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Member lookupMemberByUserName(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
