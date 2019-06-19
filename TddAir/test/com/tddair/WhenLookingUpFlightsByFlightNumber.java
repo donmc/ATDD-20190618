@@ -3,6 +3,7 @@ package com.tddair;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class WhenLookingUpFlightsByFlightNumber {
@@ -11,8 +12,10 @@ public class WhenLookingUpFlightsByFlightNumber {
 	private String flightNumber;
 	private Flight flight;
 
+	
 	@Before
 	public void given() {
+		
 		app = new TddAirApplication();
 		flightNumber = "AA1290";
 		app.addFlight("DFW", "ORD", 1000, "AA", 1290);
@@ -24,7 +27,7 @@ public class WhenLookingUpFlightsByFlightNumber {
 		assertNotNull(flight);
 	}
 	
-	@Test
+	@Test 
 	public void shouldHaveCorrectFlightNumber() {
 		assertEquals(flightNumber, flight.getFullFlightNumber());
 	}
