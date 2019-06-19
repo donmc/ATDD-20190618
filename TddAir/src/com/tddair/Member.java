@@ -15,24 +15,30 @@ public class Member {
 		m_balanceMiles =10000;
 	}
 
-	public Object getCategory() {
+	public Category getCategory() {
 		
 		return m_category;
 	}
 
-	public Object getYtdMiles() {
+	public int getYtdMiles() {
 		
 		return m_ytdMiles;
 	}
 
-	public Object getBalanceMiles() {
+	public int getBalanceMiles() {
 		
 		return m_balanceMiles;
 	}
 
-	public Object getUsername() {
+	public String getUsername() {
 		
 		return m_username;
+	}
+
+	public void addMiles(int miles) {
+		m_ytdMiles += miles;
+		m_balanceMiles += miles;
+		
 	}
 
 }

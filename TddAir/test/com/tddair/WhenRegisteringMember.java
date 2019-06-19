@@ -9,18 +9,31 @@ import org.junit.Test;
 public class WhenRegisteringMember {
 	Member member;
 	private String username;
+	TddAirApplication app;
 	@Before
 	public void setup() {
 		//setup
 		username = "donmc";
 		String email = "don@improving.com";
 		
-		TddAirApplication app = new TddAirApplication();
+		app = new TddAirApplication();
 		
 		//execute
 		app.registerMember(username,email);
 		member = app.lookUpMemberByUsername(username);
 
+	}
+	
+	@Ignore @Test
+	public void shouldNotAllowDuplicate() {
+		
+	}
+	@Test
+	public void shouldAllowMultipleMembers() {
+		app.registerMember("bob", "bob@improving.com");
+		Member first = app.lookUpMemberByUsername("");
+		Member second = app.lookUpMemberByUsername("bob");
+		assertNotEquals(first, second);
 	}
 	
 	@Test

@@ -35,4 +35,16 @@ public class TddAirApplication {
 		
 		return nameToMember.get(username);
 	}
+
+	public void completeFlight(String username, String flightnumber) {
+		Member m = nameToMember.get(username);
+		m.addMiles(this.lookUpFlightByNumber(flightnumber).getMileage());
+		if (m.getYtdMiles()>25000) 
+			m.m_category = Category.GREEN;
+		if (m.getYtdMiles()>50000) 
+			m.m_category = Category.BLUE;
+		
+		
+		
+	}
 }
