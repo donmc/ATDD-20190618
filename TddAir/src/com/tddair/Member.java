@@ -7,8 +7,7 @@ public class Member {
 	}
 
 	public Category getCategory() {
-		// TODO Auto-generated method stub
-		return null;
+		return Category.RED;
 	}
 
 	public int getYtdMiles() {

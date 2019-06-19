@@ -27,7 +27,7 @@ public class WhenRegisteringMember {
 		assertNotNull(member);
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHaveRedCategory() {
 		assertEquals(Category.RED, member.getCategory());
 	}
