@@ -26,4 +26,30 @@ public class TddAirApplication {
 	public Member lookupMemberByUserName(String username) {
 		return members.getMemberByName(username);
 	}
+
+	public void completeFlight(String memberName, String flightNumber) {
+		// TODO Auto-generated method stub
+		Flight flight = flights.getFlightBy(flightNumber)
+	;
+		
+		Member member = members.getMemberByName(memberName);
+		member.addToYTDMiles(flight.getMileage());
+		member.addToBalanceMiles(flight.getMileage());
+		
+		this.updateCategory(member);
+		}
+	
+	
+	
+	private void updateCategory(Member member) {
+		
+		if (member.getYTDMiles() <= 25000)
+			member.setCategory ( Category.RED);
+		else if (member.getYTDMiles() <= 50000)
+			member.setCategory(Category.GREEN);
+		else if (member.getYTDMiles() <= 75000)
+			member.setCategory(Category.BLUE);
+		else if (member.getYTDMiles() > 75000)
+			member.setCategory(Category.GOLDEN);
+	}
 }

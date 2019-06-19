@@ -41,4 +41,30 @@ public class Member {
 		return mYTDMiles;
 	}
 
+	public void setYTDMiles(int i) {
+		// TODO Auto-generated method stub
+		mYTDMiles = i;
+		
+	}
+
+	public void setBalanceMiles(int i) {
+		// TODO Auto-generated method stub
+		mBalanceMiles = i;
+	}
+
+	public void addToYTDMiles(int mileage) {
+		// TODO Auto-generated method stub
+		mYTDMiles += mileage;
+	}
+
+	public void addToBalanceMiles(int mileage) {
+		// TODO Auto-generated method stub
+		mBalanceMiles += mileage;
+	}
+
+	public void setCategory(Category category) {
+		// TODO Auto-generated method stub
+		mCategory = category;
+	}
+
 }
