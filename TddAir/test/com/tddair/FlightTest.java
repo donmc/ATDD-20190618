@@ -23,11 +23,12 @@ public class FlightTest {
 		number = 1290;
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) 
 	public void testNullOrigin() {
 
 		new Flight(null, dest, miles, airline, number);
 	}
+	
 
 	@Test
 	public void testInvalidOrigin() {

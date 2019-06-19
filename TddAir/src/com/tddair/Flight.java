@@ -24,7 +24,7 @@ public class Flight {
 		this.mileage = mileage; 
 		this.airline = airline;  
 		this.number = number;
-	}
+	} 
 
 	
 	public Flight(String origin, String destination, int mileage) {
