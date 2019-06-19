@@ -38,13 +38,18 @@ public class Member {
 		return email;
 	}
 	
-	public void addYtdMiles(int milesToAdd) {
+	private void addYtdMiles(int milesToAdd) {
 		this.ytdMiles += milesToAdd;
 		
 		this.category = Category.getCategoryForMiles(this.ytdMiles);
 	}
 
-	public void addBalanceMiles(int mileage) {
+	private void addBalanceMiles(int mileage) {
 		this.balanceMiles += mileage;
+	}
+
+	public void completeFlight(Flight flight) {
+		addYtdMiles(flight.getMileage());
+		addBalanceMiles(flight.getMileage());
 	}
 }

@@ -30,7 +30,7 @@ public class TddAirApplication {
 	public void completeFlight(String username, String flightNumber) {
 		Member member = this.lookupMemberByUserName(username);
 		Flight flight = this.lookupFlightByNumber(flightNumber);
-		member.addYtdMiles(flight.getMileage());
-		member.addBalanceMiles(flight.getMileage());
+		member.completeFlight(flight);
+		
 	}
 }

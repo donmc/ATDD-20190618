@@ -17,6 +17,9 @@ public class WhenCompleteFlight {
 		String username = "donmc";
 		String email = "don@improving.com";
 		app = new TddAirApplication();
+		app.addFlight("SFO", "SYD", 20000, "AA", 20000);
+		app.addFlight("SFO", "SYD", 45000, "AA", 45000);
+		app.addFlight("SFO", "SYD", 70000, "AA", 70000);
 
 		// Exercise
 		app.registerMember(username, email);
@@ -25,7 +28,6 @@ public class WhenCompleteFlight {
 	
 	@Test
 	public void shouldAccumulateYtdMiles() {
-		app.addFlight("SFO", "SYD", 20000, "AA", 20000);
 		app.completeFlight("donmc","AA20000");
 		app.completeFlight("donmc","QF191");
 		assertEquals(27490,member.getYtdMiles());
@@ -33,7 +35,6 @@ public class WhenCompleteFlight {
 	
 	@Test
 	public void shouldAccumulateBalanceMiles() {
-		app.addFlight("SFO", "SYD", 20000, "AA", 20000);
 		app.completeFlight("donmc","AA20000");
 		app.completeFlight("donmc","QF191");		
 		assertEquals(37490,member.getBalanceMiles());
@@ -41,20 +42,23 @@ public class WhenCompleteFlight {
 
 	@Test
 	public void shouldGoFromRedToGreen() {
-		app.addFlight("SFO", "SYD", 20000, "AA", 20000);
 		app.completeFlight("donmc","AA20000");
 		app.completeFlight("donmc","QF191");		
 		assertEquals(Category.GREEN,member.getCategory());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldGoFromGreenToBlue() {
-		fail("Not yet implemented");
+		app.completeFlight("donmc","AA45000");
+		app.completeFlight("donmc","QF191");		
+		assertEquals(Category.BLUE,member.getCategory());
 	}
 
-	@Ignore @Test
+	@Test
 	public void shouldGoFromBlueToGold() {
-		fail("Not yet implemented");
+		app.completeFlight("donmc","AA70000");
+		app.completeFlight("donmc","QF191");		
+		assertEquals(Category.GOLD,member.getCategory());
 	}
 
 }

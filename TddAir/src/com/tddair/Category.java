@@ -1,24 +1,28 @@
 package com.tddair;
 
 public enum Category {
-	RED (0, 25000),
-	GREEN (25001, 50000);
+	RED,
+	GREEN,
+	BLUE,
+	GOLD;
 	
 	
-	private int minMiles;
-	private int maxMiles;
-	Category(int minMiles, int maxMiles) {
-		this.minMiles = minMiles;
-		this.maxMiles = maxMiles;
-	}
 	
 	public static Category getCategoryForMiles(int miles) {
-		for (Category currCategory: Category.values()) {
-			if (currCategory.minMiles <= miles && currCategory.maxMiles >= miles) {
-				return currCategory;
-			}
+		Category category = null;
+		
+		if (miles >= 25000) {
+			category = GREEN;
+		} 
+		
+		if (miles >= 50000) {
+			category = BLUE;
+		} 
+
+		if (miles >= 75000) {
+			category = GOLD;
 		}
 		
-		return null;
+		return category;
 	}
 }
