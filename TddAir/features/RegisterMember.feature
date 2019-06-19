@@ -26,6 +26,7 @@ When customer registers with username <username> and email <email>
 Then receive error message "Invalid email!"
 
 Examples:
+
 |username  |email|
 |"donmc"   |"don.com"|
 |"bob"     |"bob@bob"|
