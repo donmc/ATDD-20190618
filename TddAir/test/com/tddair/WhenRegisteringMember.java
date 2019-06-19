@@ -12,7 +12,7 @@ public class WhenRegisteringMember {
 	private static TddAirApplication app;
 	
 	@BeforeClass
-	public static void setup() {
+	public static void setup() throws Exception {
 		// setup
 		username = "donmc";
 		email = "don@improving.com";
@@ -44,8 +44,12 @@ public class WhenRegisteringMember {
 	}	
 	
 	@Test(expected = Exception.class)
-	public void shouldNotAllowDuplicateUserName() {
+	public void shouldNotAllowDuplicateUserName() throws Exception {
 		app.registerMember(username,email);
 	}
 	
+	@Test
+	public void shouldCheckForInvalidEmail() {
+		
+	}
 }
