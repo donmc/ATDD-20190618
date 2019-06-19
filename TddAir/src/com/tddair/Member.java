@@ -1,20 +1,34 @@
 package com.tddair;
 
 public class Member {
-
-	public Object getYtdMiles() {
+	
+	String username;
+	String email;
+	int ytdMiles;
+	int balanceMiles;
+	Category category;
+	
+	Member(String username, String email) {
+		this.username = username;
+		this.email = email;
+		ytdMiles = 0;
+		balanceMiles = 10000;
+		category = Category.RED;
+	}
+	
+	public int getYtdMiles() {
 		// TODO Auto-generated method stub
-		return null;
+		return ytdMiles;
 	}
 
-	public Object getBalanceiles() {
+	public int getBalanceiles() {
 		// TODO Auto-generated method stub
-		return null;
+		return balanceMiles;
 	}
 
-	public Object[] getCategory() {
+	public Category getCategory() {
 		// TODO Auto-generated method stub
-		return null;
+		return category;
 	}
 
 }
