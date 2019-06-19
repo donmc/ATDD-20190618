@@ -32,12 +32,12 @@ public class WhenRegisteringMember {
 		assertEquals(Category.RED, member.getCategory());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldShouldHave0YtdMiles() {
 		assertEquals(0, member.getYtdMiles());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldShouldHave10000BalanceMiles() {
 		assertEquals(10000, member.getBalanceMiles());
 	}
