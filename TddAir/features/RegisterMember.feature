@@ -7,7 +7,7 @@ Scenario: Successful Registration
 
 When customer registers with username "tiwong" and email "tim.wong@oracle.com"
 Then member with username "tiwong" exists
-And member category is "Red"
+And member category is "RED"
 And member YTD miles is 0
 And member balance miles is 10000
 

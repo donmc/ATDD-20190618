@@ -19,12 +19,12 @@ public class TddAirApplication {
 		 return flights.getFlightBy(flightNumber);
 	}
 
-	public void registerMember(String username, String email) throws Exception {
+	public void registerMember(String username, String email) {
 		if(member == null)
 			member = new Member(username, email);
 		else {
 			if (member.username.equals(username))
-				throw new Exception("User already exists!");
+				throw new IllegalArgumentException("User already exists!");
 			else
 				member = new Member(username, email);
 		}
