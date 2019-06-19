@@ -11,4 +11,7 @@ public class TddAirApplication {
 	public void addFlight(String origin, String destination, int mileage, String airline, int number) {
 		flights.addFlight(origin, destination, mileage, airline, number);
 	}
+
+	
 }
+
