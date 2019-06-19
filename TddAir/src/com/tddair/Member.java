@@ -35,9 +35,24 @@ public class Member {
 		balanceMiles = i;
 	}
 
-	public void completesFlight(String flightNumber) {
+	public void completesFlight(Flight flight2) {
+		int miles = flight2.getMileage();
+		ytdMiles += miles;
+		balanceMiles += miles;
+		if (ytdMiles >= 25000 && ytdMiles < 50000)
+			category = Category.GREEN;
+		if (ytdMiles >= 50000 && ytdMiles < 75000)
+			category = Category.BLUE;
+	}
+
+	public void setStartMiles(int i) {
+		ytdMiles = i;
+		balanceMiles += i;
+	}
+
+	public int getBalanceMiles() {
 		// TODO Auto-generated method stub
-		
+		return balanceMiles;
 	}
 
 }
