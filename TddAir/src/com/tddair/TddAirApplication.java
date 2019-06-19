@@ -27,4 +27,9 @@ public class TddAirApplication {
 		// TODO Auto-generated method stub
 		return members.getMemberBy(username);
 	}
+
+	public void completeFlight(String username, String flight) {
+		// TODO Auto-generated method stub
+		
+	}
 }
