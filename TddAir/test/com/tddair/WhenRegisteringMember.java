@@ -7,13 +7,16 @@ import org.junit.Test;
 public class WhenRegisteringMember {
 
 	private static Member member;
+	private static String username;
+	private static String email;
+	private static TddAirApplication app;
 	
 	@BeforeClass
 	public static void setup() {
 		// setup
-		String username = "donmc";
-		String email = "don@improving.com";
-		TddAirApplication app = new TddAirApplication();	
+		username = "donmc";
+		email = "don@improving.com";
+		app = new TddAirApplication();	
 		
 		// exercise
 		app.registerMember(username,email);
@@ -38,6 +41,11 @@ public class WhenRegisteringMember {
 	@Test
 	public void shouldHave10000BalanceMiles() {
 		assertEquals(10000, member.getBalanceiles());				
-	}		
+	}	
+	
+	@Test(expected = Exception.class)
+	public void shouldNotAllowDuplicateUserName() {
+		app.registerMember(username,email);
+	}
 	
 }
