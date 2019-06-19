@@ -41,4 +41,8 @@ public class Member {
 	public void addYtdMiles(int milesToAdd) {
 		this.ytdMiles += milesToAdd;
 	}
+
+	public void addBalanceMiles(int mileage) {
+		this.balanceMiles += mileage;
+	}
 }

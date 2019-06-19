@@ -31,5 +31,6 @@ public class TddAirApplication {
 		Member member = this.lookupMemberByUserName(username);
 		Flight flight = this.lookupFlightByNumber(flightNumber);
 		member.addYtdMiles(flight.getMileage());
+		member.addBalanceMiles(flight.getMileage());
 	}
 }
