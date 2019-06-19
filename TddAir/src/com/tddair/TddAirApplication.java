@@ -11,4 +11,9 @@ public class TddAirApplication {
 	public void addFlight(String origin, String destination, int mileage, String airline, int number) {
 		flights.addFlight(origin, destination, mileage, airline, number);
 	}
+
+	public Flight lookupFlightByNumber(String flightNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
