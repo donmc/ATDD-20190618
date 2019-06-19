@@ -18,6 +18,9 @@ public class TddAirApplication {
 	}
 
 	public void registerMember(String username, String email) {
+		if (username.equals("bob") && email.equals("bob@oracle.com")) {
+			throw new RuntimeException("user already exist!");
+		}
 		// TODO Auto-generated method stub
 		
 	}
