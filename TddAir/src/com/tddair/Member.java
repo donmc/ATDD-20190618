@@ -3,14 +3,14 @@ package com.tddair;
 public class Member {
 	String m_username;
 	String m_email;
-	String m_category;
+	Category m_category;
 	int m_ytdMiles;
 	int m_balanceMiles;
 
 	public Member(String username, String email) {
 		m_username = username;
 		m_email = email;
-		m_category = "RED";
+		m_category = Category.RED;
 		m_ytdMiles = 0;
 		m_balanceMiles =10000;
 	}
