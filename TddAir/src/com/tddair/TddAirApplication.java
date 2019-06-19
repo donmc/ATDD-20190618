@@ -20,14 +20,26 @@ public class TddAirApplication {
 		return new Flight("DFW", "ORD", 111, "AA", 11);
 	}
 
-	public void registerMember(String username, String email) {
+	public String registerMember(String username, String email) {
 
-		Member member = new Member(username, email);
-		member.setCategory(Category.RED);
-		member.setYtdMiles(0);
-		member.setBalanceMiles(10000);
-
-		members.put(username, member);
+		Member member = lookupMemberByUsername(username);
+		if (member == null)
+		{
+			if ((email != null) && (email.indexOf('.') != -1) && (email.indexOf('@') != -1))
+			{	
+				member = new Member(username, email);
+				member.setCategory(Category.RED);
+				member.setYtdMiles(0);
+				member.setBalanceMiles(10000);
+				
+				members.put(username, member);
+				return "Success";
+			}
+			else return "Invalid Email!";
+			
+		}
+		else
+			return "Duplicate Username!";
 
 	}
 

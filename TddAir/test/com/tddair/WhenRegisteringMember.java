@@ -15,6 +15,8 @@ import org.junit.Test;
 public class WhenRegisteringMember {
 
 	private Member member;
+	private TddAirApplication app;
+	
 
 	@Before
 	public void setup() {
@@ -23,7 +25,7 @@ public class WhenRegisteringMember {
 		String username = "donmc";
 		String email = "don@improving.com";
 
-		TddAirApplication app = new TddAirApplication();
+		app = new TddAirApplication();
 
 		// Exercise
 		app.registerMember(username, email);
@@ -56,4 +58,21 @@ public class WhenRegisteringMember {
 		assertEquals(10000, member.getBalanceMiles());
 	}
 
+	@Test
+	public void shouldFailforDuplicateUsername() {
+
+		String username = "donmc";
+		String email = "don@improving.com";
+		String message = app.registerMember(username, email);
+		assertEquals("Duplicate Username!", message);
+	}
+	
+	@Test
+	public void shouldFailforInvalidEmail() {
+
+		String username = "abc";
+		String email = "abc.com";
+		String message = app.registerMember(username, email);
+		assertEquals("Invalid Email!", message);
+	}
 }
