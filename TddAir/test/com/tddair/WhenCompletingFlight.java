@@ -62,4 +62,66 @@ public class WhenCompletingFlight {
 		assertEquals(62490, member.getBalanceMiles()); 
 	}
 	
+	@Test
+	public void shouldMoveFromBlueToGoldCategory3() {
+		member.setStartMiles(70000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(Category.GOLD, member.getCategory()); 
+	}
+	
+	@Test
+	public void shouldHaveYtdMiles3() {
+		member.setStartMiles(70000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(77490, member.getYtdMiles()); 
+	}
+
+	@Test
+	public void shouldHaveBalanceMiles3() {
+		member.setStartMiles(70000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(87490, member.getBalanceMiles()); 
+	}
+	
+	@Test
+	public void shouldStayAtRedCategory4() {
+		member.setStartMiles(15000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(Category.RED, member.getCategory()); 
+	}
+	
+	@Test
+	public void shouldHaveYtdMiles4() {
+		member.setStartMiles(15000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(22490, member.getYtdMiles()); 
+	}
+
+	@Test
+	public void shouldHaveBalanceMiles4() {
+		member.setStartMiles(15000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(32490, member.getBalanceMiles()); 
+	}
+	
+	@Test
+	public void shouldStayAtGreenCategory5() {
+		member.setStartMiles(40000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(Category.GREEN, member.getCategory()); 
+	}
+	
+	@Test
+	public void shouldHaveYtdMiles5() {
+		member.setStartMiles(40000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(47490, member.getYtdMiles()); 
+	}
+
+	@Test
+	public void shouldHaveBalanceMiles5() {
+		member.setStartMiles(40000);
+		member.completesFlight(app.lookupFlightByNumber(flightNumber));
+		assertEquals(57490, member.getBalanceMiles()); 
+	}
 }

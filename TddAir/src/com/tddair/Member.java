@@ -43,6 +43,8 @@ public class Member {
 			category = Category.GREEN;
 		if (ytdMiles >= 50000 && ytdMiles < 75000)
 			category = Category.BLUE;
+		if (ytdMiles >= 75000)
+			category = Category.GOLD;
 	}
 
 	public void setStartMiles(int i) {
