@@ -10,13 +10,13 @@ public class MemberDao {
 		if (members.containsKey(username)) {
 			throw new IllegalArgumentException("user already exist!");
 		}
-		
+
 		if (emailIsNotValid(email)) {
 			throw new IllegalArgumentException("Inavlid email!");
 		}
-		
+
 		members.put(username, new Member(username, email));
-		
+
 	}
 
 	private boolean emailIsNotValid(String email) {
