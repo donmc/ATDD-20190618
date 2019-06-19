@@ -37,6 +37,7 @@ public class Member {
 
 	public void setYtdMiles(int ytdMiles) {
 		this.ytdMiles = ytdMiles;
+		
 	}
 
 	public void setBalanceMiles(int balanceMiles) {

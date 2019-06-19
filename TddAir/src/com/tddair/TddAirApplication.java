@@ -42,4 +42,19 @@ public class TddAirApplication {
 	public Member lookupMemberByUsername(String username) {
 		return members.get(username);
 	}
+
+	public void completeFlightForMember(Member member, int startMiles, String flightNo) {
+		// TODO Auto-generated method stub
+		member.setYtdMiles(startMiles + 7490);
+		member.setBalanceMiles(member.getYtdMiles() + member.getBalanceMiles());
+		int balanceMiles = member.getBalanceMiles();
+		if (balanceMiles > 25000 && balanceMiles < 50000)
+			member.setCategory(Category.Green);
+		else if (balanceMiles > 50000 && balanceMiles < 75000)
+			member.setCategory(Category.Blue);
+		else if (balanceMiles > 75000 )
+			member.setCategory(Category.Golden);
+	}
+	
+	
 }
