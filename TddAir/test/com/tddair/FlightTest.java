@@ -12,6 +12,9 @@ public class FlightTest {
 	private int miles;
 	private String airline;
 	private int number;
+	private String category; 
+	private Flight flight;
+	private Member member;
 
 	@Before
 	public void setup() {
@@ -20,6 +23,7 @@ public class FlightTest {
 		miles = 2000;
 		airline = "AA";
 		number = 1290;
+		category = "Red";
 	}
 	
 	@Test(expected =  IllegalArgumentException.class)
@@ -81,5 +85,16 @@ public class FlightTest {
 		assertEquals("UNKNOWN",flightNumber);
 		
 	}
+	
+	@Test
+	public void testRedtoGreenStatusChange() {
+		member = new Member("person1","person@person");
+		flight = new Flight("DFW","SFO",123);
+		Category c = flight.completeFlight(101, member,30000);
+		System.out.println(c.toString());
+		assertEquals(Category.GREEN.toString(),c.toString());		
+	}
+	
+	
 
 }

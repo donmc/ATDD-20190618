@@ -9,6 +9,7 @@ public class Flight {
 	private int number;
 	private int mileage;
 
+
 	public Flight(String origin, String destination, int mileage, String airline, int number) {
 		if(origin == null || origin.length() != 3) {
 			throw new IllegalArgumentException("Invalid Origin code");
@@ -45,6 +46,21 @@ public class Flight {
 	}
 	public int getMileage() {
 		return mileage;
+	}
+	
+	public Category completeFlight(int flightNumber, Member m,int flightMiles) { 
+		this.number = flightNumber;
+		m.ytdMiles = m.ytdMiles + flightMiles;
+		m.balanceMiles = m.balanceMiles + flightMiles;
+		if(m.ytdMiles>=0 && m.ytdMiles<=25000)
+			m.category=Category.RED;
+		if(m.ytdMiles>25000 && m.ytdMiles<=50000)
+			m.category=Category.GREEN;
+		if(m.ytdMiles>50000 && m.ytdMiles<=100000)
+			m.category=Category.BLUE;
+		if( m.ytdMiles>100000)
+			m.category=Category.GOLD;
+		return m.category;
 	}
 	
 }
