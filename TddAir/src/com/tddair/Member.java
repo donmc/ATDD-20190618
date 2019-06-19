@@ -2,54 +2,48 @@ package com.tddair;
 
 public class Member {
 
-	private String username;
-	private String email;
 	private Category category;
 	private int ytdMiles;
 	private int balanceMiles;
+	private String username;
+	private String email;
+
+	public Member(String username, String email) {
+		this.category = Category.Red;
+		this.ytdMiles = 0;
+		this.balanceMiles = 10000;
+		this.username = username;
+		this.email = email;
+	}
+	
+	public Category getCategory() {
+		return category;
+	}
 
 	public int getYtdMiles() {
 		return ytdMiles;
-	}
-
-	public void setYtdMiles(int ytdMiles) {
-		this.ytdMiles = ytdMiles;
 	}
 
 	public int getBalanceMiles() {
 		return balanceMiles;
 	}
 
-	public void setBalanceMiles(int balanceMiles) {
-		this.balanceMiles = balanceMiles;
+	public String getUsername() {
+		return this.username;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserName(String inputusername) {
-		username = inputusername;
+	public void setYtdMiles(int miles) {
+		this.ytdMiles=miles;
+		
 	}
 
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-
-	public Category getCategory() {
-		// TODO Auto-generated method stub
-		return category;
-	}
-
-	public int getytdMiles() {
-		// TODO Auto-generated method stub
-		return ytdMiles;
-	}
-
-	public int balanceMiles() {
-		// TODO Auto-generated method stub
-		return balanceMiles;
-	}
-
-	public void setemail(String email2) {
-        email = email2;
-
+		
 	}
 
 }

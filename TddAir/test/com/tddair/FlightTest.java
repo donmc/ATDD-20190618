@@ -1,74 +1,86 @@
 package com.tddair;
 
-import static org.junit.Assert.*;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class FlightTest {
+	
+	private String dest;
+	private int miles;
+	private String airline;
+	private int number;
+	private String orig;
 
+	@Before
+	public void setup() {
+		orig = "DFW";
+		dest = "SFO";
+		miles = 2000;
+		airline = "AA";
+		number = 1290;
+	}
+
+	@Test(expected = IllegalArgumentException.class) 
+	public void testNullOrigin() {
+
+		new Flight(null, dest, miles, airline, number);
+	}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void testNullOrigion() {
-		// Setup
-		
-		new Flight(null,"SFO",100,"AA",1290);
-		
-}
-	
+
 	@Test
-	public void testInvalidOrigion() {
-		// Setup
+	public void testInvalidOrigin() {
+
 		try {
-	
-		Flight flight = new Flight("X","SFO",100,"AA",1290);
-		fail("Should have thrown Exception");
-		} catch (IllegalArgumentException e){
-			assertEquals("Invalid origin code",e.getMessage());
+			new Flight("X", dest, miles, airline, number);
+			fail("Should have thrown an IllegalArgumentException!");
+		} catch (IllegalArgumentException e) {
+			assertEquals("Invalid origin code", e.getMessage());
 		}
-}
-	
-	@Test
-	public void testgetFullFlightNumber() {
-		// Setup
-	
-		Flight flight = new Flight("DFW","SFO",100,"AA",1290);
-		
-		// Execute
-		String flightNumber =flight.getFullFlightNumber();
-		
-		// Verify
-		assertEquals("AA1290",flightNumber);
-		
-		
-	}
-	
-	@Test
-	public void testgetFullFlightNumber_nullAirline() {
-		// Setup
-	
-		Flight flight = new Flight("DFW","SFO",100,null,1290);
-		
-		// Execute
-		String flightNumber =flight.getFullFlightNumber();
-		
-		// Verify
-		assertEquals("UNKNOWN",flightNumber);
-		
-		
 	}
 
 	@Test
-	public void testgetFullFlightNumber_zeroAirline() {
+	public void testGetFullFlightNumber() {
 		// Setup
-	
-		Flight flight = new Flight("DFW","SFO",100,"AA",0);
-		
+		Flight flight = new Flight(orig, dest, miles, airline, number);
+
 		// Execute
-		String flightNumber =flight.getFullFlightNumber();
-		
+		String flightNumber = flight.getFullFlightNumber();
+
 		// Verify
-		assertEquals("UNKNOWN",flightNumber);
-		
-		
+		String expected = "AA1290";
+		assertEquals(expected, flightNumber);
 	}
+
+	@Test
+	public void testGetFullFlightNumber_nullAirline() {
+		// Setup
+
+		Flight flight = new Flight(orig, dest, miles, null, number);
+
+		// Execute
+		String flightNumber = flight.getFullFlightNumber();
+
+		// Verify
+		String expected = "UNKNOWN";
+		assertEquals(expected, flightNumber);
+	}
+
+	@Test
+	public void testGetFullFlightNumber_0number() {
+		// Setup
+ 
+		Flight flight = new Flight(orig, dest, miles, airline, 0);
+
+		// Execute
+		String flightNumber = flight.getFullFlightNumber();
+
+		// Verify
+		String expected = "UNKNOWN";
+		assertEquals(expected, flightNumber);
+	}
+
 }
