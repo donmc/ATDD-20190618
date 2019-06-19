@@ -22,6 +22,11 @@ public class TddAirApplication {
 		if (members.containsKey(username)) {
 			throw new IllegalArgumentException("Username already exists.");
 		}
+		
+		if (email == null || email.indexOf('@') < 0) {
+			throw new IllegalArgumentException("Invalid Email Address");
+		}
+		
 		Member newMember = new Member(username, email);
 		members.put(username, newMember);
 	}

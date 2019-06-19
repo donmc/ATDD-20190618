@@ -42,7 +42,6 @@ public class WhenRegisteringMember {
 	
 	@Test
 	public void shouldErrorWhenDuplicateUsername() {
-		// exercise
 		String username = "donmc";
 		String email = "donmc@improving.com";
 		
@@ -51,6 +50,19 @@ public class WhenRegisteringMember {
 			fail("Should throw duplicate username exception.");
 		} catch(IllegalArgumentException e) {
 			assertEquals("Username already exists.", e.getMessage());
+		}
+	}
+	
+	@Test
+	public void shoudErrorWithInvalidEmail() {
+		String username = "bob";
+		String email = "bob.com";
+		
+		try {
+			app.registerMember(username, email);
+			fail("Should throw invalid email address exception.");
+		} catch(IllegalArgumentException e) {
+			assertEquals("Invalid Email Address", e.getMessage());
 		}
 	}
 	
