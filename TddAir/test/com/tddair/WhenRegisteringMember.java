@@ -33,21 +33,22 @@ public class WhenRegisteringMember {
 		assertEquals(username, member.getUsername());
 		
 	}
-	@Ignore @Test
+	
+	@Test
 	public void shouldHaveRedCategory() {
-		assertEquals(Category.RED, member.getCategory());
+		assertEquals(Category.RED.toString(), member.getCategory());
 		
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHave0YtdMiles() {
 		assertEquals(0,member.getYtdMiles());
 		
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHaveBalanceMiles() {
-		assertEquals(0,member.getBalanceMiles());
+		assertEquals(10000,member.getBalanceMiles());
 		
 	}
 
