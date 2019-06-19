@@ -18,46 +18,29 @@ public class WhenRegisteringMember {
 		TddAirApplication app = new TddAirApplication();
 		
 		app.registerMember(username, email);
-		 member = app.lookupMemberByUserName(username);
+		member = app.lookupMemberByUserName(username);
 	}
 
 	@Test
-	public void shouldFindMemberWithSameUserName() {
-
-		
-		assertNotNull(member);
-		
+	public void shouldFindMemberWithSameUserName() {		
+		assertNotNull(member);		
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHaveRedCategory() {
-
-		assertEquals(Category.RED, member.getCategory());
-		
-		
+		assertEquals(Category.RED, member.getCategory());			
 	}
 	
 	
-	@Ignore @Test
+	@Test
 	public void shouldHave0YTDMiles() {
-
-		assertEquals(0, member.getYTDMiles());
-		
-		
+		assertEquals(0, member.getYTDMiles());		
 	}
 	
 	
-	@Ignore @Test
+	@Test
 	public void shouldHave10KBalanceMiles() {
-
-		assertEquals(10000, member.getBalanceMiles());
-		
-		
+		assertEquals(10000, member.getBalanceMiles());		
 	}
-	
-	
-	
-	
-		
 
 }
