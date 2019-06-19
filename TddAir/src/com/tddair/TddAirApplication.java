@@ -13,8 +13,13 @@ public class TddAirApplication {
 		flights.addFlight(origin, destination, mileage, airline, number);
 	}
 
-	public void registerMember(String username, String email) {		
-		Member member = new Member(username, email);
+	public void registerMember(String username, String email) throws DuplicateMemberException {	
+		Member member = lookupMemberByUserName(username);
+		if( member != null) {
+			throw new DuplicateMemberException();
+		}
+		
+		member = new Member(username, email);
 		members.addMember(member); 		
 	}
 

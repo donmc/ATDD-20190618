@@ -12,9 +12,17 @@ public class Member {
 		mUsername = username;
 		mEmail = email;
 		
+		if(isEmailInvalid(email)) {
+			throw new IllegalArgumentException("invalid email");
+		}
+		
 		mCategory = Category.RED;
 		mBalanceMiles = 10000;
 		mYTDMiles = 0;
+	}
+	
+	private boolean isEmailInvalid(String email) {
+		return !email.contains("@") || !email.contains(".");
 	}
 	
 	public String getUsername() {
