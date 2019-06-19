@@ -23,7 +23,7 @@ When customer registers with username <username> and email <email>
 Then recieve error message "Invalid Email!"
 
 Examples:
-|username   | email |
-|"skarimis" | "skarimis.com" |
+|username   | email               |
+|"skarimis" | "skarimis.com"      |
 |"skarimis" | "skarimis.skarimis" |
-|"skarimis" | "skarimis" |
+|"skarimis" | "skarimis"          |

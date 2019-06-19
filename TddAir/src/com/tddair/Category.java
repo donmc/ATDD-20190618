@@ -1,8 +1,8 @@
 package com.tddair;
 
-public class Category {
+public enum Category {
 
-	public static final Object RED = null;
+	 RED;
 
 	
 
