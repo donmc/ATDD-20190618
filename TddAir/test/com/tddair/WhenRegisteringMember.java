@@ -43,7 +43,7 @@ public class WhenRegisteringMember {
 	public void shouldHaveRedCategory() {
 
 		// Verify
-		assertEquals(Category.RED, member.getCategory());
+		assertEquals(Category.Red, member.getCategory());
 	}
 
 	@Test
@@ -64,7 +64,7 @@ public class WhenRegisteringMember {
 		String username = "donmc";
 		String email = "don@improving.com";
 		String message = app.registerMember(username, email);
-		assertEquals("Duplicate Username!", message);
+		assertEquals("username already exists!", message);
 	}
 	
 	@Test
@@ -73,6 +73,6 @@ public class WhenRegisteringMember {
 		String username = "abc";
 		String email = "abc.com";
 		String message = app.registerMember(username, email);
-		assertEquals("Invalid Email!", message);
+		assertEquals("Invalid email!", message);
 	}
 }

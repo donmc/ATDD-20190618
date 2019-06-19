@@ -16,8 +16,8 @@ And member balance miles is 10000
 
 Scenario: Duplicate Username
 
-Given customer registers with username "bob" and email "bob@improving.com"
-When customer registers with username "bob" and email "bob@improving.com"
+Given customer registers with username "donmc" and email "don@improving.com"
+When customer registers with username "donmc" and email "don@improving.com"
 Then receive error message "username already exists!"
 
 Scenario Outline: Invalid Email
@@ -28,6 +28,6 @@ Then receive error message "Invalid email!"
 Examples:
 
 |username  |email|
-|"donmc"   |"don.com"|
+|"don"   |"don.com"|
 |"bob"     |"bob@bob"|
-|"jane"    |"jane"| 
+|"jane"    |"jane"|

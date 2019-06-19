@@ -31,11 +31,11 @@ public class TddAirApplication {
 				members.put(username, member);
 				return "Success";
 			}
-			else return "Invalid Email!";
+			else return "Invalid email!";
 			
 		}
 		else
-			return "Duplicate Username!";
+			return "username already exists!";
 
 	}
 
