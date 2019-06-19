@@ -10,7 +10,6 @@ public class WhenCompleteFlight {
 
 	private TddAirApplication app;
 	private Member member;
-	private Flight flight;
 	
 	@Before
 	public void setup() {
@@ -32,9 +31,12 @@ public class WhenCompleteFlight {
 		assertEquals(27490,member.getYtdMiles());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldAccumulateBalanceMiles() {
-		fail("Not yet implemented");
+		app.addFlight("SFO", "SYD", 20000, "AA", 20000);
+		app.completeFlight("donmc","AA20000");
+		app.completeFlight("donmc","QF191");		
+		assertEquals(37490,member.getBalanceMiles());
 	}
 
 	@Ignore @Test
