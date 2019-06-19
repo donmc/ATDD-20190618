@@ -16,4 +16,14 @@ public class TddAirApplication {
 		// TODO Auto-generated method stub
 		return new Flight ("DFW","ORD",1000,"AA120",10);
 	}
+
+	public void registerMember(String username, String email) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Member lookupMemberByUserName(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
