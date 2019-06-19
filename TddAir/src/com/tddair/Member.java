@@ -12,6 +12,9 @@ public class Member {
 
 		this.setUsername(username);
 		this.setEmail(email);
+		this.setCategory(Category.RED);
+		this.setYtdMiles(0);
+		this.setBalanceMiles(10000);
 
 	}
 

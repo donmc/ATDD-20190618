@@ -7,10 +7,6 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-/**
- * @author ntangell
- *
- */
 public class RegisterMemberSteps {
 	
 	@When("^customer registers with username \"([^\"]*)\" and email \"([^\"]*)\"$")

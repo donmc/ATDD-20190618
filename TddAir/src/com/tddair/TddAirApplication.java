@@ -28,10 +28,6 @@ public class TddAirApplication {
 			if ((email != null) && (email.indexOf('.') != -1) && (email.indexOf('@') != -1))
 			{	
 				member = new Member(username, email);
-				member.setCategory(Category.RED);
-				member.setYtdMiles(0);
-				member.setBalanceMiles(10000);
-				
 				members.put(username, member);
 				return "Success";
 			}
