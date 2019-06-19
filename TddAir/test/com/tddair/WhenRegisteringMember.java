@@ -2,6 +2,7 @@ package com.tddair;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -10,40 +11,62 @@ import org.junit.Test;
 public class WhenRegisteringMember {
 
 	private Member member;
+	private TddAirApplication app;
 
 	@Before
 	public void setUp() {
 		// setup
 		String username = "donmc";
 		String email = "don@improving.com";
-		TddAirApplication app = new TddAirApplication();
+		app = new TddAirApplication();
 		
 		// exercise
 		app.registerMember(username, email);
 		member = app.lookupMemberByUsername(username);
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldFindMemberWithSameUserName() {
 		// verify
-		assertNotNull(member);
+		assertEquals("donmc", member.getUsername());
 	}
 	
-	@Ignore @Test
+	@Test
+	public void shouldFindSecondMemberWithUserName() {
+		String username = "bob";
+		String email = "bob@oracle.com";
+		app.registerMember(username, email);
+		member = app.lookupMemberByUsername(username);
+		assertEquals("bob", member.getUsername());
+	}
+	
+	@Test
+	public void shouldErrorWhenDuplicateUsername() {
+		// exercise
+		String username = "donmc";
+		String email = "donmc@improving.com";
+		
+		try {
+			app.registerMember(username, email);
+			fail("Should throw duplicate username exception.");
+		} catch(IllegalArgumentException e) {
+			assertEquals("Username already exists.", e.getMessage());
+		}
+	}
+	
+	@Test
 	public void shoudHaveRedCategory() {
 		assertEquals(Category.RED, member.getCategory());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHave0YtdMiles() {
 		assertEquals(0, member.getYtdMiles());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void shouldHaveBalanceMiles() {
 		assertEquals(10000, member.getBalanceMiles());
 	}
 	
-	
-
 }

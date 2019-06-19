@@ -1,9 +1,11 @@
 package com.tddair;
 
+import java.util.HashMap;
 
 public class TddAirApplication {
 	
 	private FlightDao flights = new FlightDao();
+	private HashMap<String,Member> members = new HashMap<String,Member>();
 	
 	public TddAirApplication() {
 	}
@@ -17,12 +19,14 @@ public class TddAirApplication {
 	}
 
 	public void registerMember(String username, String email) {
-		// TODO Auto-generated method stub
-		
+		if (members.containsKey(username)) {
+			throw new IllegalArgumentException("Username already exists.");
+		}
+		Member newMember = new Member(username, email);
+		members.put(username, newMember);
 	}
 
 	public Member lookupMemberByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		return members.get(username);
 	}
 }
