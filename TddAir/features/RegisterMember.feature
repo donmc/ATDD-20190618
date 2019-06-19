@@ -11,6 +11,14 @@ And member category is "Red"
 And member ytd miles is 0
 And member balance miles is 10000
 
+Scenario: Successful Second Registration
+
+When customer registers with username "bob" and email "bob@improving.com"
+Then member with username "bob" exists 
+And member category is "Red" 
+And member ytd miles is 0
+And member balance miles is 10000
+
 Scenario: Duplicate Username
 
 Given customer registers with username "bob" and email "bob@improving.com"
