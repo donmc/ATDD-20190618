@@ -15,12 +15,12 @@ Scenario: Duplicate Username
 
 Given customer registers with username "bob" and email "bob@improving.com"
 When customer registers with username "bob" and email "bob@oracle.com"
-Then receive error message "username already exits!"
+Then receive error message "Username already exists."
 
 Scenario Outline: Invalid Email
 
 When customer registers with username <username> and email <email>
-Then receive error message "invalid email!"
+Then receive error message "Invalid Email Address"
 
 Examples:
 |username  |email    |

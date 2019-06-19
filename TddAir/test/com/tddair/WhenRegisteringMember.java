@@ -68,7 +68,7 @@ public class WhenRegisteringMember {
 	
 	@Test
 	public void shoudHaveRedCategory() {
-		assertEquals(Category.RED, member.getCategory());
+		assertEquals(Category.Red, member.getCategory());
 	}
 	
 	@Test

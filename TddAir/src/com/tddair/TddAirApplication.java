@@ -23,7 +23,7 @@ public class TddAirApplication {
 			throw new IllegalArgumentException("Username already exists.");
 		}
 		
-		if (email == null || email.indexOf('@') < 0) {
+		if (emailNotValid(email)) {
 			throw new IllegalArgumentException("Invalid Email Address");
 		}
 		
@@ -31,7 +31,19 @@ public class TddAirApplication {
 		members.put(username, newMember);
 	}
 
+	private boolean emailNotValid(String email) {
+		return email == null || email.indexOf('@') < 0 || email.indexOf('.') < 0;
+	}
+
 	public Member lookupMemberByUsername(String username) {
 		return members.get(username);
+	}
+
+	public void completeFlight(String flightNumber, String username) {
+		Flight flight = lookUpFlightByNumber(flightNumber);
+		Member member = lookupMemberByUsername(username);
+		
+		member.addMiles(flight.getMileage());
+		member.refreshCategory();
 	}
 }
