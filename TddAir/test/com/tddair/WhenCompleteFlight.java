@@ -3,9 +3,10 @@ package com.tddair;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
-public class CompleteFlight {
+public class WhenCompleteFlight {
 
 	private TddAirApplication app;
 	private Member member;

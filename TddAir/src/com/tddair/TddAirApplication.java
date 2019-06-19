@@ -14,8 +14,7 @@ public class TddAirApplication {
 	}
 
 	public Flight lookupFlightByNumber(String flightNumber) {
-		// TODO Auto-generated method stub
-		return null;
+		return flights.getFlightBy(flightNumber);
 	}
 
 	public void registerMember(String username, String email) {
@@ -28,8 +27,9 @@ public class TddAirApplication {
 		return members.getMemberBy(username);
 	}
 
-	public void completeFlight(String username, String flight) {
-		// TODO Auto-generated method stub
-		
+	public void completeFlight(String username, String flightNumber) {
+		Member member = this.lookupMemberByUserName(username);
+		Flight flight = this.lookupFlightByNumber(flightNumber);
+		member.addYtdMiles(flight.getMileage());
 	}
 }

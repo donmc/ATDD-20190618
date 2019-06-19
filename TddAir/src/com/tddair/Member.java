@@ -37,4 +37,8 @@ public class Member {
 	public String getEmail() {
 		return email;
 	}
+	
+	public void addYtdMiles(int milesToAdd) {
+		this.ytdMiles += milesToAdd;
+	}
 }
