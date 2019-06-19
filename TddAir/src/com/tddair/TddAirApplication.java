@@ -40,6 +40,13 @@ public class TddAirApplication {
 			return null;
 	}
 
+	public void completesFlight(String userName, String flightNumber) {
+		// TODO Auto-generated method stub
+		member = this.lookupMemberByUsername(userName);
+		Flight flight = this.lookupFlightByNumber(flightNumber);
+		member.completesFlight(flight);
+	}
+
 
 
 	

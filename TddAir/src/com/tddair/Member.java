@@ -39,13 +39,10 @@ public class Member {
 		int miles = flight2.getMileage();
 		ytdMiles += miles;
 		balanceMiles += miles;
-		if (ytdMiles >= 25000 && ytdMiles < 50000)
-			category = Category.GREEN;
-		if (ytdMiles >= 50000 && ytdMiles < 75000)
-			category = Category.BLUE;
-		if (ytdMiles >= 75000)
-			category = Category.GOLD;
+		
+		category = Category.getCategoryByMiles(ytdMiles);
 	}
+
 
 	public void setStartMiles(int i) {
 		ytdMiles = i;
