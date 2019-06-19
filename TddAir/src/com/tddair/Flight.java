@@ -11,7 +11,7 @@ public class Flight {
 
 	public Flight(String origin, String destination, int mileage, String airline, int number) {
 		if(origin == null || origin.length() != 3) {
-			throw new IllegalArgumentException("Invalid origin code");
+			throw new IllegalArgumentException("Invalid Origin code");
 		}
 		if(destination == null || destination.length() != 3) {
 			throw new IllegalArgumentException("Invalid destination code");
