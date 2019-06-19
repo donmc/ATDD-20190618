@@ -12,9 +12,9 @@ public class WhenLookingUpFlights {
 //		fail("Not yet implemented");
 		TddAirApplication app = new TddAirApplication();
 		String fn = "AA1200";
-		Flight flight  = app.lookupFlightNumber(fn); //we added this method after wiritng test
+//		Flight flight  = app.lookupFlightNumber(fn); //we added this method after wiritng test
 		
-		assertNotNull(flight);
+//		assertNotNull(flight);
 	}
 
 }
