@@ -39,9 +39,12 @@ public class WhenCompleteFlight {
 		assertEquals(37490,member.getBalanceMiles());
 	}
 
-	@Ignore @Test
+	@Test
 	public void shouldGoFromRedToGreen() {
-		fail("Not yet implemented");
+		app.addFlight("SFO", "SYD", 20000, "AA", 20000);
+		app.completeFlight("donmc","AA20000");
+		app.completeFlight("donmc","QF191");		
+		assertEquals(Category.GREEN,member.getCategory());
 	}
 	
 	@Ignore @Test
