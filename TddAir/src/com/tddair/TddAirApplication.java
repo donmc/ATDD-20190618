@@ -4,6 +4,7 @@ package com.tddair;
 public class TddAirApplication {
 	
 	private FlightDao flights = new FlightDao();
+	private MemberDao members = new MemberDao();;
 	
 	public TddAirApplication() {
 	}
@@ -18,15 +19,12 @@ public class TddAirApplication {
 	}
 
 	public void registerMember(String username, String email) {
-		if (username.equals("bob") && email.equals("bob@oracle.com")) {
-			throw new RuntimeException("user already exist!");
-		}
-		// TODO Auto-generated method stub
+		members.addMember(username, email);
 		
 	}
 
 	public Member lookupMemberByUserName(String username) {
 		// TODO Auto-generated method stub
-		return new Member();
+		return members.getMemberBy(username);
 	}
 }

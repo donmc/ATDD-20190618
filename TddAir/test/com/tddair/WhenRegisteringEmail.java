@@ -3,6 +3,7 @@ package com.tddair;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class WhenRegisteringEmail {
@@ -14,14 +15,6 @@ public class WhenRegisteringEmail {
 		app = new TddAirApplication();
 	}
 
-	@Test
-	public void shouldThrowErrorForNoAt() {
-		try {
-			app.registerMember("donmc", "don.com");
-			fail();
-		} catch (Exception e) {
-			assertEquals("Inavlid email!", e.getMessage());
-		}
-	}
+
 
 }

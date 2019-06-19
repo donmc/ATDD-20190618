@@ -7,7 +7,16 @@ Scenario: Successful Registration
 
 When customer registers with username "donmc" and email "don@improving.com"
 Then member with username "donmc" exists
-And member category is "Red"
+And member category is "RED"
+And member Ytd Miles is 0
+And member balance miles is 10000 
+
+
+Scenario: Successful Second Registration
+
+When customer registers with username "bob" and email "bob@improving.com"
+Then member with username "bob" exists
+And member category is "RED"
 And member Ytd Miles is 0
 And member balance miles is 10000 
 

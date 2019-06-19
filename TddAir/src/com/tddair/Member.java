@@ -4,26 +4,40 @@ import org.junit.Test;
 
 public class Member {
 	
-	public void Member(String userId, String email) {
-		
-	}
+	private Category category;
+	private int ytdMiles;
+	private int balanceMiles;
+	private String username;
+	private String email;
 
+
+	public Member(String username, String email) {
+		this.category = Category.RED;
+		this.ytdMiles = 0;
+		this.balanceMiles = 10000;
+		this.username = username;
+		this.email = email;
+	}
+	
+	public String getUserName() {
+		return username;
+	}
+	
 	public Category getCategory() {
-		return Category.RED;
+		return category;
 	}
 
 	public int getYtdMiles() {
 		// TODO Auto-generated method stub
-		return 0;
+		return ytdMiles;
 	}
 
 	public int getBalanceMiles() {
 		// TODO Auto-generated method stub
-		return 10000;
+		return this.balanceMiles;
 	}
-
-	@Test
-	public void shouldGetErrorWhenUserExistsBad() {
 	
+	public String getEmail() {
+		return email;
 	}
 }
