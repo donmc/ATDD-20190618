@@ -7,6 +7,7 @@ public class Member {
 	private Category mCategory;
 	private int mBalanceMiles;
 	private int mYTDMiles;
+	private int mUpgradeQuantity;
 
 	public Member(String username, String email) {
 		mUsername = username;
@@ -66,5 +67,24 @@ public class Member {
 		// TODO Auto-generated method stub
 		mCategory = category;
 	}
+
+	public void purchaseSeatUpgrade(int seatUpgrades) {
+		// TODO Auto-generated method stub
+		int cost = seatUpgrades * mCategory.getUpgradeMilesCost();
+				
+		if (cost > mBalanceMiles)
+			throw new InsufficientMilesException();
+		
+		mBalanceMiles -= cost;
+		mUpgradeQuantity += seatUpgrades;
+		
+	}
+
+	public int getUpgradeQuantity() {
+		// TODO Auto-generated method stub
+		return mUpgradeQuantity;
+	}
+	
+	
 
 }
