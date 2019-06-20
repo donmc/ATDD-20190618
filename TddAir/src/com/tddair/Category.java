@@ -1,15 +1,19 @@
 package com.tddair;
 
 public enum Category {
-	RED,
-	GREEN,
-	BLUE,
-	GOLD;
+	RED (10000),
+	GREEN (9000),
+	BLUE (8000),
+	GOLD (7000);
 	
+	private int milesCost;
 	
-	
+	Category(int cost){
+		this.milesCost = cost;
+	}
+
 	public static Category getCategoryForMiles(int miles) {
-		Category category = null;
+		Category category = RED;
 		
 		if (miles >= 25000) {
 			category = GREEN;
@@ -25,4 +29,9 @@ public enum Category {
 		
 		return category;
 	}
+	
+	public int getMilesCost() {
+		return this.milesCost; 
+	}
+	
 }

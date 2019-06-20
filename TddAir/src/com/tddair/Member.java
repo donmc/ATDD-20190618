@@ -9,6 +9,7 @@ public class Member {
 	private int balanceMiles;
 	private String username;
 	private String email;
+	private int upgradeQuantity;
 
 	public Member(String username, String email) {
 		this.category = Category.RED;
@@ -16,6 +17,7 @@ public class Member {
 		this.balanceMiles = 10000;
 		this.username = username;
 		this.email = email;
+		this.upgradeQuantity = 0;
 	}
 
 	public String getUserName() {
@@ -54,12 +56,16 @@ public class Member {
 	}
 
 	public void purchaseUpgradesWithMiles(int i) {
-		// TODO Auto-generated method stub
+		
+		int totalCost = i * this.getCategory().getMilesCost();
+		this.balanceMiles -= totalCost;
+		this.upgradeQuantity += i;
+		
 		
 	}
 
 	public int getUpgrades() {
 		// TODO Auto-generated method stub
-		return -1;
+		return this.upgradeQuantity;
 	}
 }

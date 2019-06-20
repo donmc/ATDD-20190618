@@ -28,7 +28,7 @@ public class WhenPurchasingUpgrade {
 		assertEquals(1, member.getUpgrades());
 	}
 
-	@Ignore @Test
+	@Test
 	public void shouldBalanceMilesGoDown() {
 		member.purchaseUpgradesWithMiles(1);
 		assertEquals(20000, member.getBalanceMiles());
@@ -36,11 +36,16 @@ public class WhenPurchasingUpgrade {
 	
 	
 	
-	@Ignore @Test
+	@Test
 	public void shouldCostBe9000ForGreen() {
 		app.completeFlight("donmc", "TST10000");
 		member.purchaseUpgradesWithMiles(1);
 		assertEquals(31000, member.getBalanceMiles());
 		
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void shouldErrorForNotEligible() {
+		member.purchaseUpgradesWithMiles(5);
 	}
 }
