@@ -25,5 +25,12 @@ public class TddAirApplication {
 	public Member lookupMemberByUsername(String username) {
 		return members.getMemberBy(username);
 	}
+
+	public void completeFlight(String username, String flightNumber) {
+		Flight flight = flights.getFlightBy(flightNumber);
+		Member member = members.getMemberBy(username);
+		member.completeFlight(flight);
+		
+	}
 }
  

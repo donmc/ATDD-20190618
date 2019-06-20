@@ -36,4 +36,11 @@ public class Member {
 		return email;
 	}
 
+	public void completeFlight(Flight flight) {
+		ytdMiles += flight.getMileage();
+		balanceMiles += flight.getMileage();
+		
+		category = Category.getCategoryFor(ytdMiles);
+	}
+
 }
