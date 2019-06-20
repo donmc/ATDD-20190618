@@ -44,6 +44,8 @@ public class WhenPurchasingUpgrade {
 		
 	}
 	
+	
+	
 	@Test(expected = IllegalArgumentException.class)
 	public void shouldErrorForNotEligible() {
 		member.purchaseUpgradesWithMiles(5);
