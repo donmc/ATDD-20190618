@@ -7,7 +7,16 @@ public class Member {
 	int ytdMiles;
 	int balanceMiles;
 	Category category;
+	int seatUpgrades;
 	
+	public int getSeatUpgrades() {
+		return seatUpgrades;
+	}
+
+	public void setSeatUpgrades(int seatUpgrades) {
+		this.seatUpgrades = seatUpgrades;
+	}
+
 	Member(String username, String email) {
 		this.username = username;
 		this.email = email;
@@ -19,11 +28,6 @@ public class Member {
 	public int getYtdMiles() {
 		// TODO Auto-generated method stub
 		return ytdMiles;
-	}
-
-	public int getBalanceiles() {
-		// TODO Auto-generated method stub
-		return balanceMiles;
 	}
 
 	public Category getCategory() {
@@ -52,6 +56,14 @@ public class Member {
 	public int getBalanceMiles() {
 		// TODO Auto-generated method stub
 		return balanceMiles;
+	}
+
+	public void purchaseSeatUpgradeWithMiles(int qtyUpgrades) {
+		int purchaseCost = Category.getPurchaseMiles(this.getCategory());
+		if (purchaseCost*qtyUpgrades <= balanceMiles) {
+		this.balanceMiles -= (purchaseCost * qtyUpgrades); 
+		this.seatUpgrades += qtyUpgrades;
+		}
 	}
 
 }

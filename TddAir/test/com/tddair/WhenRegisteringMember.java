@@ -40,7 +40,7 @@ public class WhenRegisteringMember {
 	
 	@Test
 	public void shouldHave10000BalanceMiles() {
-		assertEquals(10000, member.getBalanceiles());				
+		assertEquals(10000, member.getBalanceMiles());				
 	}	
 	
 	@Test(expected = Exception.class)

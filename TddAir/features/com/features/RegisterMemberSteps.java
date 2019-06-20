@@ -44,7 +44,7 @@ public class RegisterMemberSteps {
 
 	@Then("^member balance mils is (\\d+)$")
 	public void member_balance_mils_is(int balanceMiles) throws Throwable {
-		assertEquals(balanceMiles, member.getBalanceiles());
+		assertEquals(balanceMiles, member.getBalanceMiles());
 	}
 	
 	@Then("^receive error message \"([^\"]*)\"$")

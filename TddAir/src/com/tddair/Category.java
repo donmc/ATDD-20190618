@@ -13,5 +13,18 @@ public enum Category {
 		return category;
 	}
 
+	public static int getPurchaseMiles(Category category) {
+		if (category == Category.RED)
+		return 10000 ;
+		if (category == Category.GREEN)
+			return 9000 ;
+		if (category == Category.BLUE)
+			return 8000 ;
+		if (category == Category.GOLD)
+			return 7000 ;			
+				else
+			return -1;
+	}
+
 
 }
