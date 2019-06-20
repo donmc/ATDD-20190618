@@ -52,4 +52,14 @@ public class Member {
 		addYtdMiles(flight.getMileage());
 		addBalanceMiles(flight.getMileage());
 	}
+
+	public void purchaseUpgradesWithMiles(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getUpgrades() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
 }
