@@ -7,6 +7,7 @@ public class Member {
 	private Category category;
 	private int ytdMiles;
 	private int balanceMiles;
+	private int seatUpgrades;
 
 	Member(String username, String email) {
 
@@ -15,6 +16,7 @@ public class Member {
 		this.setCategory(Category.Red);
 		this.setYtdMiles(0);
 		this.setBalanceMiles(10000);
+		this.setSeatUpgrades(0);
 
 	}
 
@@ -59,6 +61,52 @@ public class Member {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public int getSeatUpgrades() {
+		return seatUpgrades;
+	}
+
+	public void setSeatUpgrades(int seatUpgrades) {
+		this.seatUpgrades = seatUpgrades;
+	}
+
+	public void purchaseSeatUpgrade(int quantity) {
+		
+		if (Category.Red == this.getCategory() ) {
+		 if (this.getBalanceMiles() >= (10000 * quantity)) {
+			 this.setBalanceMiles(this.getBalanceMiles()-(10000 * quantity));
+			 this.setSeatUpgrades(quantity);
+		 }else {
+			 throw new IllegalArgumentException("Insufficient Miles to Purchase Seat Upgrade");
+		 }
+		}
+		if (Category.Green == this.getCategory() ) {
+			 if (this.getBalanceMiles() >= (9000 * quantity)) {
+				 this.setBalanceMiles(this.getBalanceMiles()-(9000 * quantity));
+				 this.setSeatUpgrades(quantity);
+			 }else {
+				 throw new IllegalArgumentException("Insufficient Miles to Purchase Seat Upgrade");
+			 }
+			 
+			}
+		if (Category.Blue == this.getCategory() ) {
+			 if (this.getBalanceMiles() >= (8000 * quantity)) {
+				 this.setBalanceMiles(this.getBalanceMiles()-(8000 * quantity));
+				 this.setSeatUpgrades(quantity);
+			 }else {
+				 throw new IllegalArgumentException("Insufficient Miles to Purchase Seat Upgrade");
+			 } 
+			}
+		if (Category.Golden == this.getCategory() ) {
+			 if (this.getBalanceMiles() >= (7000 * quantity)) {
+				 this.setBalanceMiles(this.getBalanceMiles()-(7000 * quantity));
+				 this.setSeatUpgrades(quantity);
+			 }else {
+				 throw new IllegalArgumentException("Insufficient Miles to Purchase Seat Upgrade");
+			 } 
+			}
+	
 	}
 
 }
