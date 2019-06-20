@@ -19,7 +19,7 @@ public class WhenPurchasingUpgrade {
 	
 	
 	@Test
-	public void shouldBalanceGoDown() {
+	public void shouldUpgradesGoUP() {
 		member.purchaseUpgradesWithMiles(1);
 		assertEquals(1, member.getUpgrades());
 	}
