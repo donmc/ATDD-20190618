@@ -8,11 +8,14 @@ import org.junit.Test;
 
 public class WhenPurchasingUpgrade {
 	Member member;
+	private TddAirApplication app;
 	
 	@Before
 	public void setup() {
-		TddAirApplication app = new TddAirApplication();
+		app = new TddAirApplication();
+		app.addFlight("SFO", "DFW", 10000, "TST", 10000);
 		app.addFlight("SFO", "DFW", 20000, "TST", 20000);
+		app.addFlight("SFO", "DFW", 30000, "TST", 30000);
 		app.registerMember("donmc", "bob@improving.com");
 		member = app.lookupMemberByUserName("donmc");
 		app.completeFlight("donmc", "TST20000");
@@ -29,5 +32,15 @@ public class WhenPurchasingUpgrade {
 	public void shouldBalanceMilesGoDown() {
 		member.purchaseUpgradesWithMiles(1);
 		assertEquals(20000, member.getBalanceMiles());
+	}
+	
+	
+	
+	@Ignore @Test
+	public void shouldCostBe9000ForGreen() {
+		app.completeFlight("donmc", "TST10000");
+		member.purchaseUpgradesWithMiles(1);
+		assertEquals(31000, member.getBalanceMiles());
+		
 	}
 }
