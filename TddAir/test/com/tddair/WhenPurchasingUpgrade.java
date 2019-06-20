@@ -3,6 +3,7 @@ package com.tddair;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class WhenPurchasingUpgrade {
@@ -24,4 +25,9 @@ public class WhenPurchasingUpgrade {
 		assertEquals(1, member.getUpgrades());
 	}
 
+	@Ignore @Test
+	public void shouldBalanceMilesGoDown() {
+		member.purchaseUpgradesWithMiles(1);
+		assertEquals(20000, member.getBalanceMiles());
+	}
 }
