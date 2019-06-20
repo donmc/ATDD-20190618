@@ -58,6 +58,9 @@ public class Member {
 	public void purchaseUpgradesWithMiles(int i) {
 		
 		int totalCost = i * this.getCategory().getMilesCost();
+		if (totalCost > balanceMiles) {
+			throw new IllegalArgumentException("Cannot afford upgrades");
+		}
 		this.balanceMiles -= totalCost;
 		this.upgradeQuantity += i;
 		
